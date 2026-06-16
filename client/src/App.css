@@ -5,3 +5,7 @@ body{
   height: 100vh;
   overflow-x: hidden;
 }
+p,h1,h2,h3,h4,h5,h6,button,span,label,input{
+  font-family: serif;
+  font-style: italic ;
+}

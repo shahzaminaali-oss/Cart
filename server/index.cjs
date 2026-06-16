@@ -15,6 +15,14 @@ app.use("/upload", express.static(path.join(__dirname, "upload")));
 const connect=require('./db.cjs')
 connect()
 
+const adminRoutes = require('./routes/admroute.cjs');
+
+app.use('/admin', adminRoutes);
+
+const authRouter = require('./routes/Authrouter.cjs')
+app.use('/auth', authRouter);
+
+
 const route=require('./routes/catroute.cjs')
 app.use('/',route)
 

@@ -47,7 +47,7 @@ subtotal:subCharge,
 
        const result = await res.json() 
 
-      if(result.ok){
+      if(res.ok){
         alert(result.message)
         reset(defaultVal)
         }
@@ -107,7 +107,7 @@ subtotal:subCharge,
           />
         </div>
  <div className="p-2 my-4 border border-amber-500">
-        <select {...register('payment')}  className='focus:outline-none w-[300px]  bg-amber-50'>
+        <select {...register('payment')}  className='focus:outline-none w-[300px]  bg-amber-50' defaultValue="">
           <option  className='bg-amber-500' value="" disabled>Select Payment</option>
            <option value="COD" >Cash on Delivery</option>
            <option value="Card">CARD</option>

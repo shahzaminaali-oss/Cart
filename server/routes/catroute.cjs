@@ -1,5 +1,5 @@
 const router=require('express').Router()
-const {catCon,catView,getProduct}=require('../controllers/catcon.cjs')
+const {catCon,catView,getProduct,deleteProduct}=require('../controllers/catcon.cjs')
 const catMid=require('../middleware/catmid.cjs')
 const multer=require('multer')
 
@@ -17,4 +17,5 @@ const upload = multer({ storage });
 router.post('/cat', upload.single("img"), catMid, catCon )
 router.get('/view',catView)
 router.get('/pro/:id', getProduct)
+router.delete('/catdel/:id',deleteProduct)
 module.exports=router

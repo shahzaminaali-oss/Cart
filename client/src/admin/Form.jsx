@@ -6,12 +6,13 @@ const Form = () => {
   const defaultVal={
       name: '',
       price: '',
-      img:null
+      stock:'',
+      
     }
   const { register, handleSubmit , reset} = useForm({defaultValues:defaultVal})
 
-  const onsubmit = async(data) => {
-     const file = fileInputRef.current.files[0]
+  const onSubmit = async(data) => {
+     const file = fileInputRef.current?.files[0]
 
     if (!file) {
       alert('Please upload an image')
@@ -25,6 +26,7 @@ const Form = () => {
    formData.append('price', data.price)
    
    formData.append("img",file)
+formData.append('stock', data.stock)
 
    const res=await fetch('http://localhost:5000/cat',{
     method:'POST',
@@ -51,7 +53,7 @@ const Form = () => {
     <div>
       <form
         className="flex flex-col items-center mx-auto mt-32 shadow-lg shadow-amber-500/60 w-[400px] h-auto py-2"
-        onSubmit={handleSubmit(onsubmit)}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <div className="p-3 my-3 border border-amber-500">
           <input
@@ -68,6 +70,15 @@ const Form = () => {
             {...register('price')}
             type="number"
             placeholder="Enter Price"
+          />
+        </div>
+
+        <div className="p-3 my-3 border border-amber-500">
+          <input
+            className="focus:outline-none w-full"
+            {...register('stock')}
+            type="number"
+            placeholder="Enter stock"
           />
         </div>
 

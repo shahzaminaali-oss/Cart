@@ -11,7 +11,12 @@ const catModal=new mongoose.Schema({
      img:{
         type:String,
         required:true
-    }
+    },
+     stock: {                
+    type: Number,
+    required: true,
+    default:0
+  }
     
 })
 
